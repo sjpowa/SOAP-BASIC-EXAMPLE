@@ -1,0 +1,19 @@
+>>> WS Security <<<
+
+> WS Security is a set of specifications which is used to provide security to our SOAP web service application.
+
+> WS Security is transport independent, if u are using HTTP or MQ it does not really matter.
+
+> WS Security provides specification for:
+	- Authentication [passwords]
+	- Digital Signature
+	- Certificates
+
+> XWSS is one of the most important implementation of WS Security
+	XWSS = XML Web Service Security
+
+> We use the XWSS to implement a Security Policy
+	and
+  we will use XwsSecurityInterceptor[ it intercepts the request when it will come to the service]
+  	so to make sure that
+  we will use user-id and password, make by us, to access our service.

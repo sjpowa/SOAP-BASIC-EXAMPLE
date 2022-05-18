@@ -1,0 +1,41 @@
+<!-- XML Structure -->
+
+-> XML = eXtensible Markup Language.
+
+-> XML was designed to store and transport data.
+
+-> XML was designed to be both human - and machine-readable
+
+-> XML is often used for distributing data over the Internet.
+
+-> XML is a software- and hardware-independent tool for storing and transporting data.
+
+>>> XML does not DO anything <<<
+
+================================================================
+
+GetCourseDetailsRequest -> GetCourseDetailsResponse
+
+the INPUT of the Request is the course id -> 123
+the OUTPUT will be the Details of the course.
+
+================================================================
+>>> EXAMPLE <<<
+
+The XML down here has:
+
+1) It has sender information
+2) It has receiver information
+3) It has a heading
+4) It has a message body
+
+<note>
+  <to>Tove</to> [receiver information]
+  <from>Jani</from> [sender information]
+  <heading>Reminder</heading> [heading]
+  <body>Don't forget me this weekend!</body> [we have a msg in the body tag]
+</note>
+
+the XML above does not DO anything.
+XML is just information wrapped in tags.
+================================================================

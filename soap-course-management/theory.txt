@@ -1,0 +1,112 @@
+>>> SOAP <<<
+
+> To use SOAP we have to add in the pom file the WEB SERVICE Dependency
+
+> The first thing to understand is that Spring Web Services
+	promotes a contract first approach to create web services
+  It means you would define the format of the request and of the response
+  	before you would start with developing your web service.
+  	
+ > So the first thing we want to do is that we want to start defining our service.
+ 	We would define XMLs for our request and response
+   and we would define XSDs for them.
+   
+> XSD = XML Schema Definition
+	XSD defines how you would request and response should look like,
+		what kind of structure they should have.
+An XML Schema describes the structure of an XML document.
+
+> So what we want to create is a web service provider,
+	which can accept a SOAP XML request
+  and provide an output in the terms of a SOAP XML response
+ 
+===============================================================================
+>>> SERVICE DEFINITION <<<
+
+ > WSDL
+ 		We want to define our services and generate the WSDL.
+   We are not gonna create the WSDL manually by hand but
+   		we want to configure Spring Boot Web Services framework
+   to generate the WSDL for us.
+   
+===============================================================================
+>>> XML Java Binding <<<
+
+> JAXB = Java API for XML binding
+		Another thing we want to configure is something called
+	JAXB Maven plugin
+	
+To understand what's going on with all these terminologies, we have to say that..
+.. the input from the Web Service Client is an XML request(SOAP XML request) that goes to the Web Service Provider,
+	but inside the Web Service Provider we are creating a Java Application that has objects..
+so how the XML that comes in the Web Service Provider get converted to an object
+	and how does the object get converted to the response..
+THAT'S WHERE XML BINDING comes into the picture.
+	So the JAXB will take the XSDs and will generate java objects,
+then we will have the end-point that will process with business logic stuff the related request
+	and create the response back.
+So in the end-point we will use the JAXB Java Objects to get the values from the request and also to populate
+	the values into the response.
+As part of this configuration, this is basically the Spring Web Service Configuration,
+	we will also configure generating a WSDL (WSDL - Generator).
+We would need a web service client so that we can execute the request and get the response back.
+We will use a chrome plugin called Wizdler.
+
+===============================================================================
+>>> complexType <<<
+
+The complexType element defines a complex type.
+A complex type element is an XML element that contains other elements and/or attributes.
+===============================================================================
+>>> .xsd <<<
+
+The .xsd file is something which helps us to validate if our request is fine or not
+===============================================================================
+>>> .xsd - JAXB <<<
+
+If we want to be able to use the XSD,
+if we want to be able to map our Java Objects,
+generate the XML file which is defined in the XSD
+and then
+convert it into Java...
+
+When we will have the SOAP XML Request to the Web Service Provider,
+at this point, we have to convert the file into Java
+and
+we should be able to convert the response from Java to the SOAP XML back as well.
+
+...We have to use something called JAXB for doing that.
+
+Once we configure in the pom.xml file the JABX plugin,
+what happens is that
+the JABX will take the XSD file that we have created
+to create Java Objects,
+and these Java Objects we would be using in our project
+to put values to.
+
+So if we want to do it to our course-details.xsd file,
+we have to make this file available as part of the project.
+To do this, we copy the course-details.xsd file in src/main/resources.
+Why we put the file in there?!?
+Because this folder(src/main/resources)
+is one the most important folder of the Java Project!
+
+At this point we want to take the structure of course-details.xsd
+and
+create Java Objects
+which allow me to create XML in that structure.
+How we do that?
+To create the data objects out of the XSD,
+to create the JABX binding kind of objects out of this XSD,
+we need to configure something called JABX Maven Plugin.
+
+After we have configured the jaxb2-maven-plugin
+and created the java objects from the .xsd file
+we will focus on creating an endpoint.
+
+An ENDPOINT is something which receives the request
+and
+processes it
+and
+sends a response back.
+===============================================================================

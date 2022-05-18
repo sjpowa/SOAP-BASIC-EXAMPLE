@@ -1,0 +1,40 @@
+localhost:8080/ws/courses.wsdl
+
+When we are run the app and open localhost:8080/ws/courses.wsdl
+we see the WSDL definition of our services.
+
+If you provide this WSDL to any of the clients of your web services,
+they'd be able to know every detail on how to call your web service.
+
+The important WSDL present are:
+
+- <wsdl:types>
+- a variety of <wsdl:message>
+- <wsdl:portType>
+- <wsdl:binding>
+- <wsld:service>
+
+This is how most of the WSDL would look like, because this is a common structure.
+
+---> With <wsdl:type> we will see the stuff which are present in the schema,
+	so we will see the schema we have created
+	
+---> <wsdl:message> defines what are the request and response.
+	When we have the response messages defined
+		we can actually map them to operations. How do we do that?
+---> <wsdl:portType> We do that by using portType, because portType matches all the Request and Response operations.
+	So portType is like an interface that match all the operations that are available,
+		this web service offers these services. If you want to call this web service you would need to pass
+			the input (Request) and to the input we will have the output(Response).
+		Why similar to an Interface? Because an interface defines how you call a specific method.
+
+---> <wsdl:binding> binding defines the implementation.
+		The important things that are in here defined are: style and transport.
+	A WSDL SOAP binding can be either a Remote Procedure Call (RPC) style binding or a document style binding.
+		A WSDL binding describes how the service is bound to a messaging protocol, particularly the SOAP messaging protocol.
+	Binding maps the operations to how you are exposing them,
+		like if u are using SOAP over http [transport="http://schemas.xmlsoap.org/soap/http"]
+	or if we are using SOAP over MQ
+
+---> <wsdl:service> Service maps to an endpoint,
+	what is the URL the customers can use to call this web service
