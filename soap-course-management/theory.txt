@@ -1,5 +1,18 @@
 >>> SOAP <<<
 
+
+===============================================================================
+
+>>> PROJECT ERROR <<<
+
+> IF THE PROJECT HAS AN ERROR AND DOESN'T WORK AFTER SOME MODIFICATIONS
+	RIGHT CLICK ON THE PROJECT -> MAVEN -> UPDATE PROJECT
+  This can happen when u change something in the pom file.
+  Another way to solve this is with RIGHT CLICK MOUSE ON THE PROJECT -> RUN AS.. -> MAVEN CLEAN
+  	when completed, same place but -> MAVEN INSTALL
+
+===============================================================================
+
 > To use SOAP we have to add in the pom file the WEB SERVICE Dependency
 
 > The first thing to understand is that Spring Web Services

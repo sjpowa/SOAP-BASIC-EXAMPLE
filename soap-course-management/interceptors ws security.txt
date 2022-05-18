@@ -1,0 +1,56 @@
+// ===================================================================
+	// XwsSecurityInterceptor //
+	// XwsSecurityInterceptor intercepts all the Web Service Request that are coming in our Web Service
+	// and it checks whether it's secure.
+	// For example, we can create user and password as Authentication.
+	// Once we have created the XwsSecurityInterceptor, we need to add it to the list of interceptors.
+	// We do it by extending (extends) this class with WsConfigurerAdapter and override the method we need in there.
+	// In our case the method we have to override is: public void addInterceptors(List<EndpointInterceptor> interceptors)
+	// Interceptors.add -> XwsSecurityInterceptor
+	
+	// FOR XwsSecurityInterceptor WE HAVE TO DEFINE TWO THINGS:
+	// 1) Callback Handler -> SimplePasswordValidationCallbackHandler this means that when the request comes in what should we do?
+//										It should check the user and password we have set to access!
+	
+	// 2) Security Policy -> securityPolicy.xml -> we will create this file to define the security policy
+	// 												and configure it in our interceptor
+	
+	//XwsSecurityInterceptor
+//	@Bean
+//	public XwsSecurityInterceptor securityInterceptor(){
+//		XwsSecurityInterceptor securityInterceptor = new XwsSecurityInterceptor();
+//		//Callback Handler -> SimplePasswordValidationCallbackHandler
+//		securityInterceptor.setCallbackHandler(callbackHandler()); // we set the CallbackHandler to set a simple validation user and password
+//		//Security Policy -> securityPolicy.xml
+//		securityInterceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
+//		return securityInterceptor;
+//	}
+	
+	// make sure to have this method down here as public
+//	@Bean
+//	public SimplePasswordValidationCallbackHandler callbackHandler() {
+//		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
+//		handler.setUsersMap(Collections.singletonMap("user", "password"));
+//		return handler;
+//	}
+	
+	// Interceptors.add -> XwsSecurityInterceptor
+	// After we have extended the class to WsConfigurerAdapter we can override the method we need
+//	@Override
+//	public void addInterceptors(List<EndpointInterceptor> interceptors) {
+//		interceptors.add(securityInterceptor()); // so when we get the request we want to intercept it and add the securityInterceptor!
+//	}
+
+==========================================================================================
+
+-> Remember to add the securityPolicy.xml
+	in the src/main/resources folder
+	
+<?xml version="1.0" encoding="UTF-8"?>
+<xwss:SecurityConfiguration 
+xmlns:xwss="http://java.sun.com/xml/ns/xwss/config">
+	<xwss:RequireUsernameToken
+		passwordDigestRequired="false" nonceRequired="false" />
+</xwss:SecurityConfiguration>
+	
+==========================================================================================
