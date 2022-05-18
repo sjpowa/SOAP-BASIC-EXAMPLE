@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML Schema is typically used to define how an XML should look like -->
+<!-- Is a good practise to declare a namespace for the schema -->
+<!-- and if we don't do that -->
+<!-- the default namespace for the entire schema -->
+<!-- will be: xmlns="http://www.w3.org/2001/XMLSchema" -->
+<!-- I have defined a name for our schema called ciao -->
+<!-- the name has to be added to all the nodes and -->
+<!--  as we see in our case, also we have to add it to the type attribute -->
+<ciao:schema xmlns:ciao="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://in28minutes.com/courses"
+xmlns:tns="http://in28minutes.com/courses" elementFormDefault="qualified">
+	<!-- the targhetNameSpace has to be equals to the xml file u want to give some structure -->
+	
+	<!-- We want to create an element called GetCourseDetailsRequest -->
+	<!-- Inside that, I want to create another element called Id with a numeric value -->
+	<!-- So the id can have only number values and not letters/string -->
+	<ciao:element name="GetCourseDetailsRequest">
+	<!-- The structure of the element can consist on other elements  -->
+	<!-- When you create an element that contains others elements you have to create something called complexType -->
+		<ciao:complexType>
+			<!-- Inside the complexType we can define the structure -->
+			<!-- What should be here in the complexType??? => an id! -->
+			<ciao:sequence>
+			<!-- In a complex type we can define a sequence -->
+			<!-- In the sequence we can define a sequence of elements -->
+				<ciao:element name="id" type="ciao:integer"/>
+<!-- 			<ciao:element name="id1" type="ciao:integer"/> --> <!-- another structure example to add -->
+			</ciao:sequence>
+		</ciao:complexType>
+	</ciao:element>
+	
+	<ciao:element name="GetCourseDetailsResponse">
+		<ciao:complexType>
+			<ciao:sequence>
+				<ciao:element name="CourseDetails" type="tns:CourseDetails"/>
+			</ciao:sequence>
+		</ciao:complexType>
+	</ciao:element>
+	<ciao:complexType name="CourseDetails">
+	<!-- we have created a separate definition for CourseDetails -->
+		<ciao:sequence>
+			<ciao:element name="id" type="ciao:integer"/>
+			<ciao:element name="name" type="ciao:string"/>
+			<ciao:element name="description" type="ciao:string"/>
+		</ciao:sequence> <!-- we use a sequence tag because we have a sequence of elements -->
+	</ciao:complexType>
+	
+</ciao:schema>
+
+<!-- to make our schema work on our Request -->
+<!-- .. we have to provide an XML Schema Definition in the Request.xml file -->
+
+<!-- in targetNamespace is where we put the namespace -->
+<!-- 	of the xml file we want to define the structure -->

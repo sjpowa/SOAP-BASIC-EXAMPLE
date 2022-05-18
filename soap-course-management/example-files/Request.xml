@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- We are gonna to assign a schemaLocation to say to this file that Request.xml has to use an XSD Schema -->
+<GetCourseDetailsRequest xmlns="http://in28minutes.com/courses"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd">
+	<id>123</id> <!-- I want the id to be only numbers type -->
+<!-- <id1>456</id1> --> <!-- when we define a rule, then we have always to specify other stuffs -->
+</GetCourseDetailsRequest>
+
+<!-- <ciao xmlns="default namespace"></ciao> --> <!-- THIS ON THE LEFT IS AN EXAMPLE.. -->
+<!-- How to make an XML unique to my courses??? -->
+<!-- We do it defining a namespace -->
+<!-- xmlns="default namespace" is what to use
+	to give an identifier and avoid similar courses conflicts -->
+	
+<!-- I want to get in the id only numbers, not string/letters
+	to do that we need an .xsd file to define a structure to our .xml file -->
+	
+<!-- the .xsd file is something which helps us to validate if our request is fine or not -->
+
+<!-- To say to our .xml which .xsd structure it has to take
+	we have to define a schema location where we put in the {namespace fo the .xsd file}
+		and as {location the name of the .xsd file}
+ after we have set the location,
+ 	we have to put the XML Schema NameSpace -->

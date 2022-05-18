@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsResponse xmlns="http://in28minutes.com/courses"
+xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CourseDetails>
+		<id>123</id>
+		<name>Spring in28minutes</name>
+		<description>You will learn the basics of Spring Framework</description>
+	</CourseDetails>
+</GetCourseDetailsResponse>
+
+<!-- I need to get in the Response file all the Course Details so
+	we create a tag called CourseDetails -->
+<!-- I want to get the id -->
+<!-- I want to get the name of the Course as well -->
+<!-- Also I want to get back a description -->
+
+<!-- to receive the .xsd structure we have defined, as said in the Request.xml file,
+	we have to bring here in the Response tag,
+	we have to add the Schema NameSpace and the Schema Location -->
